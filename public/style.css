@@ -125,6 +125,14 @@ section .card .like_btn {
   place-items: center;
 }
 
+
+.logo {
+
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10rem;
+}
+
 .bottom_nav {
   position: fixed;
   width: min(450px, 100%);

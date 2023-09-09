@@ -39,9 +39,9 @@
 
     <section>
        
-        <% if (images.results) { %>
+        <% if (data) { %>
            
-                <% images.results.forEach(element => { %>
+                <% data.forEach(element => { %>
             
         <div class="card">
             <img src="<%=element.urls.regular%>" alt="<%=element.description%>">

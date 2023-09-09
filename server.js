@@ -2,6 +2,8 @@
 const { error } = require('console');
 const express = require('express');
 const server = express();
+const axios = require('axios')
+
 
 
 
@@ -16,29 +18,26 @@ server.set('view engine', 'ejs')
 
 //***** Setting Endpoints */
 
-server.get('/page/:p', (req, res) => {
-  
-  let page = req.params.p 
-
-  page++ 
-
-  console.log(page)
-
-
-});
-
 server.get('/', (req, res) => {
        
        let page = req.query.page
     
        const query = req.query.q
      
-        fetch(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=${query}&client_id=Ryd5V1rN8vRB2L8d8BW8A5bEcOtq0mWVZF-GAf1wuJw`)
-        .then(data => data.json())
-        .then(images =>  res.render('index', { images }))
-        .catch(error => console.log(error))
+       axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=office&client_id=Ryd5V1rN8vRB2L8d8BW8A5bEcOtq0mWVZF-GAf1wuJw`).then(function(images){
+
+       const data =  images.data.results
+        res.render('index', { data })
+
+      })
+
+    
+    
+    
 
 })
+
+
 
 
 

@@ -24,7 +24,7 @@ server.get('/', (req, res) => {
     
        const query = req.query.q
      
-       axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=office&client_id=Ryd5V1rN8vRB2L8d8BW8A5bEcOtq0mWVZF-GAf1wuJw`).then(function(images){
+       axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=30&query=${query}&client_id=Ryd5V1rN8vRB2L8d8BW8A5bEcOtq0mWVZF-GAf1wuJw`).then(function(images){
 
        const data =  images.data.results
         res.render('index', { data })

@@ -2,11 +2,6 @@
 const favorites = JSON.parse(localStorage.getItem('favorites') || '[]')
 
 
-const section = document.querySelector('section');
-
-const data = JSON.parse(section.dataset.image)
-
-console.log(data)
 
 function addToFav(src, id)
 {

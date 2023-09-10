@@ -1,0 +1,168 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-transform: capitalize;
+}
+
+body {
+  margin: 0 auto 0;
+  width: min(100%, 1300px);
+  min-height: 100vh;
+  padding: 0 1em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+header {
+    width: 100%;
+    height: 70vh;
+    margin: 2% auto 0;
+    background-image: url(/Banner_img/sebastian-svenson-d2w-_1LJioQ-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  header h1 {
+    text-transform: capitalize;
+    font-family: "Rubik Mono One", sans-serif;
+    font-weight: 900;
+    font-size: 4em;
+    color: #ffffff;
+  }
+  
+  header p {
+    text-transform: uppercase;
+    font-weight: 200;
+    color: #e6e6e6;
+  }
+
+
+  section {
+    
+    width: 100%;
+    margin: 5% auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 .2em 7em;
+  }
+
+
+
+  section .image_container {
+
+     width: 50%;
+     height: auto;
+  }
+
+  section .image_container img {
+     
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  section .image_about {
+
+
+    height: auto;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  section .image_about h5 {
+
+    padding:0 0 1em ;
+    font-size: 1em;
+  }
+
+  section .image_about p, span {
+
+    display: block;
+    padding: 0 0 1em;
+  }
+
+  section .image_about .tags {
+
+    margin: 1em 0;
+  }
+
+  section .image_about .tags a {
+
+     display: inline-block;
+     outline: none;
+     overflow: hidden;
+     text-transform: capitalize;
+     text-decoration: none;
+     background-color: #e6e6e6;
+     padding: 1em;
+     color: #252525;
+  }
+
+  .bottom_nav {
+    position: fixed;
+    width: min(450px, 100%);
+    height: 4.5rem;
+    left: 50%;
+    bottom: 1%;
+    transform: translate(-50%, -1%);
+    border-radius: 5rem;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.19);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+  }
+  
+  .bottom_nav ul {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bottom_nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    list-style-type: none;
+  }
+  
+  .bottom_nav ul li {
+    display: inline-block;
+    /* flex-grow: 1; */
+    outline: none;
+    margin: auto;
+  }
+  
+  .bottom_nav ul li:first-child {
+    margin: 0 auto 0.1em;
+  }
+  
+  .bottom_nav ul li:last-child {
+    margin-left: auto;
+  }
+  

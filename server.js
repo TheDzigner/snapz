@@ -5,6 +5,7 @@ const server = express();
 const axios = require('axios')
 
 
+const unsplashApiKey = 'Ryd5V1rN8vRB2L8d8BW8A5bEcOtq0mWVZF-GAf1wuJw'
 
 
 const Port = process.env.Port || 3000
@@ -31,11 +32,30 @@ server.get('/', (req, res) => {
 
       })
 
-    
-    
-    
-
+  
 })
+
+
+server.get('/photo/:id', (req, res) => {
+
+  const id = req.params.id
+
+
+   // Construct the URL for the Unsplash API
+   const apiUrl = `https://api.unsplash.com/photos/${id}?client_id=${unsplashApiKey}`;
+   
+    
+   axios
+   .get(apiUrl)
+   .then(function (response) {
+     const data = response.data // Get the data from the response
+      res.render('template', { data })
+   })
+   .catch(function (error) {
+     console.error(error);
+     res.status(500).send('Error fetching photo data');
+   });
+});
 
 
 

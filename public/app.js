@@ -21,3 +21,49 @@ function shareWithFriends(id) {
 function openInFull(id) {
   location.href = `/photo/${id}`;
 }
+
+
+let page = parseInt(localStorage.getItem('page')) || 1;
+
+function nextPage() {
+   page += 1;
+   localStorage.setItem("page", page);
+
+   // Get the current URL
+   const currentUrl = new URL(location.href);
+
+   // Update the 'page' query parameter
+   currentUrl.searchParams.set('page', page);
+
+   // Navigate to the updated URL
+   location.href = currentUrl.toString();
+}
+
+function prevPage()
+{
+   page <= 1 ? page = page : page -=1
+  
+   localStorage.setItem("page", page);
+ // Get the current URL
+ const currentUrl = new URL(location.href);
+ // Update the 'page' query parameter
+ currentUrl.searchParams.set('page', page);
+ // Navigate to the updated URL
+ location.href = currentUrl.toString();
+
+}
+
+
+function resetPage()
+{
+   
+  page = 1 
+  
+  localStorage.setItem("page", page);
+ // Get the current URL
+ const currentUrl = new URL(location.href);
+ // Update the 'page' query parameter
+ currentUrl.searchParams.set('page', page);
+ // Navigate to the updated URL
+ location.href = currentUrl.toString();
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon_ico/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon_ico/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon_ico/favicon-16x16.png">
-  <link rel="manifest" href="/favicon_ico/site.webmanifest">
+  <link rel="manifest"  href="/favicon_ico/site.webmanifest">
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="Free Photos For Everyone" />
@@ -60,7 +60,7 @@
 
     <form class="myForm">
       <input type="text" name="q" placeholder="Search for Free, Photos" />
-      <button type="submit">
+      <button type="submit" title="submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFFFFF" viewBox="0 0 256 256">
           <path
             d="M226.83,221.17l-52.7-52.7a84.1,84.1,0,1,0-5.66,5.66l52.7,52.7a4,4,0,0,0,5.66-5.66ZM36,112a76,76,0,1,1,76,76A76.08,76.08,0,0,1,36,112Z">
@@ -73,7 +73,7 @@
 
 
 
-  <section>
+  <section data-attr="<%=JSON.stringify(data)%>">
 
     <% if (data.length) { %>
 
@@ -91,7 +91,7 @@
             </svg>
 
             <div class="menu_contents" style="background-color: <%=element.color%>;">
-              <button onclick="addToFav('<%=element.urls.regular%>', '<%=element.id%>')">
+              <button onclick="addToFav('<%=element.urls.regular%>', '<%=element.id%>','<%=element.alt_description%>')">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256">
                   <path
                     d="M178,36c-21.44,0-39.92,10.19-50,27.07C117.92,46.19,99.44,36,78,36A58.07,58.07,0,0,0,20,94c0,28.59,18,58.47,53.4,88.79a333.81,333.81,0,0,0,52.7,36.73,4,4,0,0,0,3.8,0,333.81,333.81,0,0,0,52.7-36.73C218,152.47,236,122.59,236,94A58.07,58.07,0,0,0,178,36ZM128,211.42C114,203.46,28,152.07,28,94A50.06,50.06,0,0,1,78,44c21.11,0,38.85,11.31,46.3,29.51a4,4,0,0,0,7.4,0C139.15,55.31,156.89,44,178,44a50.06,50.06,0,0,1,50,50C228,152,142,203.46,128,211.42Z">
@@ -117,7 +117,7 @@
                     d="M220,152v56a12,12,0,0,1-12,12H48a12,12,0,0,1-12-12V152a4,4,0,0,1,8,0v56a4,4,0,0,0,4,4H208a4,4,0,0,0,4-4V152a4,4,0,0,1,8,0Zm-94.83,2.83a4,4,0,0,0,5.66,0l40-40a4,4,0,1,0-5.66-5.66L132,142.34V40a4,4,0,0,0-8,0V142.34L90.83,109.17a4,4,0,0,0-5.66,5.66Z">
                   </path>
                 </svg>
-                <a href="<%=element.full%>" download=""> download</a>
+                <a href="<%=element.links.download%>" download="<%=element.description%>"> download</a>
               </button>
             </div>
           </div>
@@ -178,19 +178,19 @@
 
 
 
-  <nav class="bottom_nav">
-    <ul>
-      <li>
+  <div class="bottom_nav">
+
+      <div class="previous_page_buttton button">
         <button onclick="prevPage()" title="Back to previous page">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 256 256">
             <path
               d="M198.71,57.29A100,100,0,1,0,57.29,198.71,100,100,0,1,0,198.71,57.29Zm-5.66,135.76A92,92,0,1,1,220,128,91.37,91.37,0,0,1,193.05,193.05ZM170.83,98.83,141.66,128l29.17,29.17a4,4,0,0,1-5.66,5.66l-32-32a4,4,0,0,1,0-5.66l32-32a4,4,0,1,1,5.66,5.66Zm-56,0L85.66,128l29.17,29.17a4,4,0,0,1-5.66,5.66l-32-32a4,4,0,0,1,0-5.66l32-32a4,4,0,0,1,5.66,5.66Z">
             </path>
           </svg>
-          </a>
-      </li>
+          </button>
+        </div>
       |
-      <li>
+      <div class="home_link link">
         <a href="/" title="Home">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 256 256">
             <path
@@ -198,8 +198,9 @@
             </path>
           </svg>
         </a>
-      </li>
-      <li>
+      </div>
+
+      <div class="favorite_link link">
         <a href="/favorites" title="Favorites Photos">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 256 256">
             <path
@@ -207,8 +208,9 @@
             </path>
           </svg>
         </a>
-      </li>
-      <li>
+      </div>
+
+      <div class="setting_link link">
         <a href="/settings" title="settings">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 256 256">
             <path
@@ -216,9 +218,9 @@
             </path>
           </svg>
         </a>
-      </li>
+      </div>
       |
-      <li>
+      <div class="next_page_button">
         <button onclick="nextPage()" title="Go to next page">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 256 256">
             <path
@@ -226,7 +228,10 @@
             </path>
           </svg>
         </button>
-      </li>
+      </div>
+      
+
+        <div class="reset_page_button">
       <button class="resetPage" onclick="resetPage()" title="Reset page count">
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#000000" viewBox="0 0 256 256">
           <path
@@ -234,8 +239,9 @@
           </path>
         </svg>
       </button>
-    </ul>
-  </nav>
+    </div>
+
+  </div>
 </body>
 
 </html>

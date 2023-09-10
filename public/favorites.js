@@ -13,7 +13,7 @@ function displayCards() {
   favorites.forEach((element) => {
     const card = ` 
     <div class="card">
-    <img src='${element.src}' onclick="openInFull('${element.id}')">
+    <img src='${element.src}' onclick="openInFull('${element.id}')" alt='${element.alt}'>
     <div class="menu">
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000" viewBox="0 0 256 256">
         <path

@@ -254,56 +254,19 @@ section .card .menu:hover .menu_contents {
   background: rgba(255, 255, 255, 0.19);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.9px);
   -webkit-backdrop-filter: blur(7.9px);
+  backdrop-filter: blur(7.9px);
   border: 1px solid rgba(255, 255, 255, 0.13);
-}
 
-.bottom_nav ul {
-  width: 100%;
-  height: 100%;
-}
-
-.bottom_nav ul {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  width: 100%;
-  list-style-type: none;
 }
 
-.bottom_nav ul li {
-  display: inline-block;
-  /* flex-grow: 1; */
-  outline: none;
-  margin: auto;
+.bottom_nav div button{
+
+     outline: none;
+     background-color: transparent;
+     border: none;
+     cursor: pointer;
 }
-
-.bottom_nav ul li button {
-
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.bottom_nav  ul .resetPage {
-
-  position: absolute;
-  right: 3%;
-  top: 3%;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-/* .bottom_nav ul li:first-child { */
-  /* margin: 0 auto 0.1em; */
-  /* background-color: transparent; */
-  /* border: none; */
-  /* outline: none; */
-/* } */
-/*  */
-/* .bottom_nav ul li:last-child { */
-  /* margin-left: auto; */
-/* } */
-/*  */

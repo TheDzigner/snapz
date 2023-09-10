@@ -1,13 +1,14 @@
 const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
+
 document.addEventListener('DOMContentLoaded',()=> {
   document.querySelector('.preloader').classList.add('ended')
 });
 
 
 
-function addToFav(src, id) {
-  favorites.push({ src, id });
+function addToFav(src, id, alt) {
+  favorites.push({ src, id, alt });
   localStorage.setItem("favorites", JSON.stringify(favorites));
   alert('Added to Favorites');
 }

@@ -12,6 +12,76 @@ html {
   text-transform: capitalize;
 }
 
+.preloader {
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1f1e1e;
+  z-index: 9999;
+}
+
+.preloader.ended {
+
+  display: none;
+}
+
+.blinking_text { 
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 5rem;
+  text-transform: uppercase;
+  padding-top: 3em;
+  letter-spacing: .2em;
+}
+
+.blinking_text span {
+
+  display: inline-block;
+  color: #0a0909;
+  position: relative;
+  text-shadow: 0 0 1px #1f1e1e;
+  font-family: "Rubik Mono One", sans-serif;
+}
+
+.blinking_text span::before {
+
+  content: attr(data-letter);
+  position: absolute;
+  color: #fff900;
+  text-shadow: 0 0 1px #fff900,
+               0 0 5px #fff900;
+  opacity: 0;
+  font-family: "Rubik Mono One", sans-serif;
+  animation: blinking  1.25s ease-in-out infinite;
+}
+
+@keyframes blinking {
+
+  0%{
+      opacity: 0;
+  }
+  50%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+  }
+}
+
+.blinking_text span:nth-child(2)::before{animation-delay: .2s;}
+.blinking_text span:nth-child(3)::before{animation-delay: .3s;}
+.blinking_text span:nth-child(4)::before{animation-delay: .4s;}
+.blinking_text span:nth-child(5)::before{animation-delay: .5s;}
+
 body {
   margin: 0 auto 0;
   width: min(100%, 1300px);

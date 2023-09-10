@@ -1,16 +1,16 @@
-   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-let section = document.querySelector('section');
-  
-   if (!favorites.length) {
-        section.innerHTML = 'You have not saved any Photos Yet ...'
-   }
+const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let section = document.querySelector("section");
 
-   function displayCards()
-   {
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector(".preloader").classList.add("ended");
+});
 
-   
- favorites.forEach((element) => {
-    
+if (!favorites.length) {
+  section.innerHTML = "You have not saved any Photos Yet ...";
+}
+
+function displayCards() {
+  favorites.forEach((element) => {
     const card = ` 
     <div class="card">
     <img src='${element.src}' onclick="openInFull('${element.id}')">
@@ -50,30 +50,24 @@ let section = document.querySelector('section');
       </div>
     </div>
   </div>
-    `
-  section.innerHTML += card
- })
-
-   }
-
-   displayCards()
-
-function removeFromFav(id) {
-   
-  if(confirm('Remove Photo from Favorites ??')){
-   // Filter out the object with a matching 'id'
-   const updatedFavorites = favorites.filter((fav) => fav.id !== id);
-
-   // Store the updated favorites back in local storage
-   localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    
-   location.reload(true)
-  }
-
+    `;
+    section.innerHTML += card;
+  });
 }
 
+displayCards();
 
+function removeFromFav(id) {
+  if (confirm("Remove Photo from Favorites ??")) {
+    // Filter out the object with a matching 'id'
+    const updatedFavorites = favorites.filter((fav) => fav.id !== id);
 
+    // Store the updated favorites back in local storage
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
+    location.reload(true);
+  }
+}
 
 function shareWithFriends(id) {
   if (navigator.share) {
@@ -93,7 +87,9 @@ function shareWithFriends(id) {
       });
   } else {
     // Fallback for browsers that don't support the Web Share API
-    alert("Web Share API not supported. Link has been copied to your clipboard.");
+    alert(
+      "Web Share API not supported. Link has been copied to your clipboard."
+    );
     copyToClipboardWithUrl(`/photo/${id}`);
   }
 }
@@ -111,7 +107,6 @@ function copyToClipboardWithUrl(text) {
     });
 }
 
-  function openInFull(id) {
-    location.href = `/photo/${id}`;
-  }
-  
+function openInFull(id) {
+  location.href = `/photo/${id}`;
+}

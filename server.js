@@ -1,4 +1,3 @@
-const { error } = require("console");
 const express = require("express");
 const server = express();
 const axios = require("axios");
@@ -32,7 +31,8 @@ server.get("/", (req, res) => {
   axios
     .get(apiUrl)
     .then(function (response) {
-      const data = response.data.results || response.data; // Use results for search and data for random
+      const data = response.data.results || response.data;
+      // Use results for search and data for random
 
       // Render the 'index' template with the fetched data
       res.render("index", { data });
@@ -43,30 +43,8 @@ server.get("/", (req, res) => {
     });
 });
 
-
-server.get('/favorites', (req, res) => {
-
-  res.render('favorites');
-
-})
-
-
-server.get("/photos/:q", (req, res) => {
-  const query = req.params.q;
-  //console.log(query)
-  // Construct the URL for the Unsplash API
-  const apiUrl = `https://api.unsplash.com/search/photos/?page=1&per_page=30&query=${query}&client_id=${unsplashApiKey}`;
-
-  axios
-    .get(apiUrl)
-    .then(function (images) {
-      const data = images.data.results; // Get the data from the response
-      res.render("index", { data });
-    })
-    .catch(function (error) {
-      console.error(error);
-      res.status(500).send("Error fetching photo data");
-    });
+server.get("/favorites", (req, res) => {
+  res.render("favorites");
 });
 
 server.get("/photo/:id", (req, res) => {

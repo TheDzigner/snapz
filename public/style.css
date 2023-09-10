@@ -88,13 +88,14 @@ section {
   margin: 5% auto 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: left;
   gap: 2vmin;
   padding: 0 14px 10rem;
 }
 
 section .card {
   height: 350px;
-  flex-grow: 1;
+ flex-grow: 1;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -209,10 +210,31 @@ section .card .menu:hover .menu_contents {
   margin: auto;
 }
 
-.bottom_nav ul li:first-child {
-  margin: 0 auto 0.1em;
+.bottom_nav ul li button {
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.bottom_nav ul li:last-child {
-  margin-left: auto;
+.bottom_nav  ul .resetPage {
+
+  position: absolute;
+  right: 3%;
+  top: 3%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
+/* .bottom_nav ul li:first-child { */
+  /* margin: 0 auto 0.1em; */
+  /* background-color: transparent; */
+  /* border: none; */
+  /* outline: none; */
+/* } */
+/*  */
+/* .bottom_nav ul li:last-child { */
+  /* margin-left: auto; */
+/* } */
+/*  */

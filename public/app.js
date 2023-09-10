@@ -1,8 +1,10 @@
-const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
 
 function addToFav(src, id) {
   favorites.push({ src, id });
   localStorage.setItem("favorites", JSON.stringify(favorites));
+  alert('Added to Favorites');
 }
 
 function shareWithFriends(id) {

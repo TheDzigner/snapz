@@ -11,6 +11,12 @@ html {
   scroll-behavior: smooth;
 }
 
+
+:focus {
+  outline: 2px solid #007bff; /* Example focus style */
+}
+
+
 body {
   margin: 0 auto 0;
   width: min(100%, 1300px);

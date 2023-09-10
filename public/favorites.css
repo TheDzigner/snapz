@@ -11,6 +11,12 @@ html {
   scroll-behavior: smooth;
 }
 
+
+:focus {
+  outline: 2px solid #007bff; /* Example focus style */
+}
+
+
 body {
   margin: 0 auto 0;
   width: min(100%, 1300px);
@@ -57,7 +63,7 @@ header {
     margin: 5% auto 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     gap: 2vmin;
     padding: 0 14px 10rem;
   }

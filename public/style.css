@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 html {
@@ -16,7 +16,7 @@ body {
   width: min(100%, 1300px);
   min-height: 100vh;
   padding: 0 1em;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 header {
@@ -108,7 +108,6 @@ section .card img:hover {
 }
 
 section .card .menu {
-
   position: absolute;
   top: 3%;
   right: 7%;
@@ -117,58 +116,51 @@ section .card .menu {
   height: 1rem;
 }
 
-section .card .menu:hover .menu_contents{
-        
+section .card .menu:hover .menu_contents {
   opacity: 1;
   visibility: visible;
-  transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-       
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .card .menu .menu_contents {
-
-    width: 7.8rem;
-    height: 7.8rem;
-    position: relative;
-    right: 90px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: left;
-    opacity: 0;
-    visibility: hidden;
+  width: 7.8rem;
+  height: 7.8rem;
+  position: relative;
+  right: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .card .menu .menu_contents button {
-
   display: flex;
   place-items: center;
   outline: none;
-  padding: .3em;
+  padding: 0.3em;
   width: 7rem;
   cursor: pointer;
   border: 1px solid #e6e2e2;
-  margin: .3rem;
+  margin: 0.3rem;
 }
 
-.card .menu .menu_contents button span{
-   
+.card .menu .menu_contents button span {
   display: inline-block;
   text-transform: capitalize;
-  padding: 0 .1em;
+  padding: 0 0.1em;
 }
 
-.card .menu .menu_contents button a { 
-
+.card .menu .menu_contents button a {
   outline: none;
-  padding: .3em;
+  padding: 0.3em;
   display: inline-block;
   color: #252525;
   text-decoration: none;
 }
 
 .logo {
-
   width: 100%;
   text-align: center;
   padding-bottom: 10rem;

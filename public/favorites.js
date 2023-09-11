@@ -29,7 +29,7 @@ function displayCards() {
           </svg>
           <span>remove</span>
         </button>
-        <button>
+        <button onclick="shareWithFriends('${element.id},${element.alt}')">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256">
             <path
               d="M176,164a36,36,0,0,0-27.92,13.3L96.25,144a35.92,35.92,0,0,0,0-32L148.08,78.7A35.93,35.93,0,1,0,143.75,72L91.92,105.3a36,36,0,1,0,0,45.4L143.75,184A36,36,0,1,0,176,164Zm0-136a28,28,0,1,1-28,28A28,28,0,0,1,176,28ZM64,156a28,28,0,1,1,28-28A28,28,0,0,1,64,156Zm112,72a28,28,0,1,1,28-28A28,28,0,0,1,176,228Z">
@@ -69,42 +69,26 @@ function removeFromFav(id) {
   }
 }
 
-function shareWithFriends(id) {
-  if (navigator.share) {
-    navigator
-      .share({
-        title: "Free Photos For Everyone on Snapz",
-        url: `/photo/${id}`,
-      })
-      .then(() => {
-        console.log("Shared successfully!");
-      })
-      .catch((error) => {
-        console.error("Share failed:", error);
-        // Provide a fallback option if sharing fails
-        alert("Sharing failed. Link has been copied to your clipboard.");
-        copyToClipboardWithUrl(`/photo/${id}`);
-      });
-  } else {
-    // Fallback for browsers that don't support the Web Share API
-    alert(
-      "Web Share API not supported. Link has been copied to your clipboard."
-    );
-    copyToClipboardWithUrl(`/photo/${id}`);
-  }
-}
 
-function copyToClipboardWithUrl(text) {
-  const fullUrl = window.location.origin + text; // Construct the full URL
-  navigator.clipboard
-    .writeText(fullUrl)
-    .then(() => {
-      console.log("Text copied to clipboard");
-    })
-    .catch((error) => {
-      console.error("Copy to clipboard failed:", error);
-      alert("Copy to clipboard failed. Please copy the link manually.");
-    });
+
+
+
+
+function shareWithFriends(id, description) {
+ 
+  
+  try {
+    if (navigator.canShare) {
+       navigator.share({
+        title : 'Free Photos For Everyone, on Snapz',
+        text : description || 'Free HD Photos on Snapz.',
+        url : `/photo/${id}`
+       })
+    }
+  } catch (error) {
+    alert(error)
+  }
+
 }
 
 function openInFull(id) {

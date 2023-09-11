@@ -1,6 +1,9 @@
 const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
 
+
+
+
 document.addEventListener('DOMContentLoaded',()=> {
   document.querySelector('.preloader').classList.add('ended')
 });
@@ -13,15 +16,20 @@ function addToFav(src, id, alt) {
   alert('Added to Favorites');
 }
 
-function shareWithFriends(id) {
-  if (navigator.share && navigator.canShare) {
-    navigator.share({
-      title: "Free Photos For Everyone on Snapz",
-      url: `/photo/${id}`,
-    });
-  } else {
-    alert("web share api not supported link has been copied to your clipboard");
+function shareWithFriends(id, description) {
+ 
+  try {
+    if (navigator.canShare) {
+       navigator.share({
+        title : 'Free Photos For Everyone, on Snapz',
+        text : description || 'Free HD Photos on Snapz.',
+        url : `/photo/${id}`
+       })
+    }
+  } catch (error) {
+    alert(error)
   }
+
 }
 
 function openInFull(id) {
